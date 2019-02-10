@@ -14,21 +14,6 @@ auth_token  = "63f71b2f8e403b313c598794ca8dfb6f"
 
 number="+19135968817"
 
-def sendSMS(number, message):
-	client = Client(account_sid, auth_token)
-	message=client.messages.create(
-	    to=number, 
-	    from_="+18165337900",
-	    body=message)
-
-	print(message.sid)
-
-sendSMS(number, message)
-
-message="How are you feeling today? "
-
-sendSMS(number, message)
-#if body.lower()=='sad'
 
 
 app = Flask(__name__)
@@ -56,6 +41,21 @@ def sms_reply():
 
 	    return str(resp)
 
+        def sendSMS(number, message):
+    client = Client(account_sid, auth_token)
+    message=client.messages.create(
+        to=number, 
+        from_="+18165337900",
+        body=message)
+
+    print(message.sid)
+
+    sendSMS(number, message)
+
+    message="How are you feeling today? "
+
+    sendSMS(number, message)
+    #if body.lower()=='sad'
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
