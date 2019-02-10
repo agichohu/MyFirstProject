@@ -6,7 +6,6 @@ from twilio.twiml.messaging_response import Body, Message, Redirect, MessagingRe
 
 
 
-message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
 
 account_sid = "ACbd5b543679221d48c0d7fd6b6e1570c1"
 # Your Auth Token from twilio.com/console
@@ -26,15 +25,15 @@ app = Flask(__name__)
 # def handle_request(request_data):
 #     response = MessagingResponse()
 #     body = request_data['Body'].strip()
-
-def sms_reply():
+message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+def sms_reply(message):
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
     # if body.lower()=="good":
 
     resp = MessagingResponse()
 	    # Add a message
-    message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+    
     resp.message(message)
 
 	     # Add a picture message
@@ -57,6 +56,10 @@ def sendSMS(number, message):
 
     sendSMS(number, message)
     #if body.lower()=='sad'
+
+message=("I'm glad to hear that. You are amazing! Remember that")
+
+sms_reply(message)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
