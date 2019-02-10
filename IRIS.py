@@ -31,6 +31,11 @@ def sms_reply(message):
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
     # if body.lower()=="good":
+    user=request.form['Body']
+
+    if user=="good":
+        message="I'm glad to hear that!"
+
 
     resp = MessagingResponse()
 	    # Add a message
