@@ -34,7 +34,8 @@ def sms_reply():
 
     resp = MessagingResponse()
 	    # Add a message
-    resp.message("Hi I'm IRIS, an Immediately Responsive Intelligent System")
+    message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+    resp.message(message)
 
 	     # Add a picture message
 	    #msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
