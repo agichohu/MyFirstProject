@@ -32,14 +32,14 @@ def sms_reply():
     # Start our TwiML response
     # if body.lower()=="good":
 
-	resp = MessagingResponse()
+    resp = MessagingResponse()
 	    # Add a message
-	resp.message("Hi I'm IRIS, an Immediately Responsive Intelligent System")
+    resp.message("Hi I'm IRIS, an Immediately Responsive Intelligent System")
 
 	     # Add a picture message
 	    #msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
 
-	return str(resp)
+    return str(resp)
 
 def sendSMS(number, message):
     client = Client(account_sid, auth_token)
