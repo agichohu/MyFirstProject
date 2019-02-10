@@ -35,9 +35,24 @@ def sms_reply():
     user=request.form['Body']
 
     if user=="good":
-        message="I'm glad to hear that!"
+        message="Glad to hear it! I hope you continue to feel this way! Celebrate this feeling and hold onto what happened ot make you feel this way so that you can repeat it in the future!"
 
+    if user=="sad"
+        message="I’m sorry to hear that. Here are some things I do to make me feel better: take a walk outside, listen to uplifting music, call or message a loved one, or watch or read something positive to take my mind off of what I’m feeling."
 
+    if user=="nervous"
+        message="It’s going to be ok! This feeling will not last forever."
+    if user=="lonely"
+        message="I’m here for you and know that you are loved, supported, and important. The world would not be the same without you! For a loving quote respond"
+
+    if user=="angry"
+        message="“Let me help you turn your anger into something positive. Here are some ways to burn off energy productively: take a long walk, remove yourself from the situation, paint of draw, listen to loud music, or take a break from what you are doing."
+
+    if user=="tired"
+        message="I understand what you are feeling well. I recommend taking a break to do an activity you enjoy, taking a nap, getting a coffee, doing 20 jumping jacks, listening to a pump-up playlist, or standing up to stretch for a bit."
+
+    if user=="average"
+        message="There are many things to look forward to!"
     resp = MessagingResponse()
 	    # Add a message
     
