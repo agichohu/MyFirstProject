@@ -13,7 +13,7 @@ auth_token  = "63f71b2f8e403b313c598794ca8dfb6f"
 
 number="+19135968817"
 
-
+message ="Hi I'm IRIS, an Immediately Responsive Intelligent System"
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ app = Flask(__name__)
 # def handle_request(request_data):
 #     response = MessagingResponse()
 #     body = request_data['Body'].strip()
-message ="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+
 
 def sms_reply(message):
     """Respond to incoming calls with a simple text message."""
