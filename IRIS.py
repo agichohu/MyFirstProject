@@ -27,7 +27,7 @@ app = Flask(__name__)
 #     body = request_data['Body'].strip()
 
 
-def sms_reply(message):
+def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
     # if body.lower()=="good":
