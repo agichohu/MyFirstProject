@@ -31,7 +31,7 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
     # if body.lower()=="good":
-    message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+    message="Hi I'm IRIS, an Immediately Responsive Intelligent System\nHow are you feeling today?"
     user=request.form['Body']
 
     if user=="good":
