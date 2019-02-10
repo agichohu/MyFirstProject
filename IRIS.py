@@ -59,7 +59,7 @@ def sendSMS(number, message):
 
 message="I'm glad to hear that. You are amazing! Remember that"
 
-sms_reply()
+sms_reply(mesage)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
