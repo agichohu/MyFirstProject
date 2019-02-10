@@ -41,7 +41,7 @@ def sms_reply():
 
 	    return str(resp)
 
-        def sendSMS(number, message):
+def sendSMS(number, message):
     client = Client(account_sid, auth_token)
     message=client.messages.create(
         to=number, 
