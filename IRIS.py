@@ -5,6 +5,24 @@ from twilio.twiml.messaging_response import Message, MessagingResponse
 from twilio.twiml.messaging_response import Body, Message, Redirect, MessagingResponse
 
 
+app = Flask(__name__)
+
+@app.route("/sms", methods=['GET', 'POST'])
+def sms_reply():
+    """Respond to incoming calls with a simple text message."""
+    # Start our TwiML response
+    resp = MessagingResponse()
+
+    # Add a message
+    resp.message("The Robots are coming! Head for the hills!")
+
+     # Add a picture message
+    #msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
+
+    return str(resp)
+
+if __name__ == "__main__":
+    app.run(debug=True,host="0.0.0.0")
 
 message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
 
@@ -62,5 +80,4 @@ if __name__ == "__main__":
 # response.message("What is your name?")
 # name=body.lower()
 # response.message("Hi there "+ name +". Tell me how you are feeling today. are you happy? sad? nervous? disappointed? angry? tired? average?")
-
 
