@@ -57,7 +57,7 @@ def sendSMS(number, message):
     sendSMS(number, message)
     #if body.lower()=='sad'
 
-message=("I'm glad to hear that. You are amazing! Remember that")
+message="I'm glad to hear that. You are amazing! Remember that"
 
 sms_reply(message)
 
