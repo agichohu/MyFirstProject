@@ -22,7 +22,7 @@ def sms_reply():
     return str(resp)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0")
 
 
 account_sid = "ACbd5b543679221d48c0d7fd6b6e1570c1"
