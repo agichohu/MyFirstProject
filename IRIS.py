@@ -13,7 +13,7 @@ auth_token  = "63f71b2f8e403b313c598794ca8dfb6f"
 
 number="+19135968817"
 
-message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+
 
 app = Flask(__name__)
 
@@ -31,6 +31,7 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
     # if body.lower()=="good":
+    message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
     user=request.form['Body']
 
     if user=="good":
@@ -62,7 +63,7 @@ def sendSMS(number, message):
     sendSMS(number, message)
     #if body.lower()=='sad'
 
-message="I'm glad to hear that. You are amazing! Remember that"
+
 
 
 
