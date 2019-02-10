@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/leftText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentStart="true"
+        android:text="Hello this is me!!"
+        android:padding="8dp"
+        android:textColor="#212121"
+        android:background="@drawable/left_background"
+        android:elevation="2dp"
+        />
+
+
+    <TextView
+        android:id="@+id/rightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentEnd="true"
+        android:text="Hi!! How are you!!"
+        android:background="@drawable/right_background"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:elevation="2dp"/>
+
+
+</RelativeLayout>
+Now all we have to do is initialize the firebase and recycler adapter with FirebaseRecyclerAdapter.
+
+RecyclerView recyclerView;
+EditText editText;
+RelativeLayout addBtn;
+DatabaseReference ref;
+FirebaseRecyclerAdapter<ChatMessage,chat_rec> adapter;
+Boolean flagFab = true;
+
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    
+    recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+    editText = (EditText)findViewById(R.id.editText);
+    addBtn = (RelativeLayout)findViewById(R.id.addBtn);
+
+    recyclerView.setHasFixedSize(true);
+    final LinearLayoutManager linearLayoutManager = new    LinearLayoutManager(this);
+    linearLayoutManager.setStackFromEnd(true);
+    recyclerView.setLayoutManager(linearLayoutManager);
+
+    ref = FirebaseDatabase.getInstance().getReference();
+    ref.keepSynced(true);
+    
+
+    addBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            String message = editText.getText().toString().trim();
+
+         if (!message.equals("")) {
+
+         ChatMessage chatMessage = new ChatMessage(message, "user");
+         ref.child("chat").push().setValue(chatMessage);
+
+            }
+
+            editText.setText("");
+
+        }
+    });
+
+
+    adapter = new FirebaseRecyclerAdapter<ChatMessage, chat_rec>(ChatMessage.class,R.layout.msglist,chat_rec.class,ref.child("chat")) {
+        @Override
+        protected void populateViewHolder(chat_rec viewHolder, ChatMessage model, int position) {
+
+            if (model.getMsgUser().equals("user")) {
+
+
+                viewHolder.rightText.setText(model.getMsgText());
+
+                viewHolder.rightText.setVisibility(View.VISIBLE);
+                viewHolder.leftText.setVisibility(View.GONE);
+            }
+            else {
+                viewHolder.leftText.setText(model.getMsgText());
+
+                viewHolder.rightText.setVisibility(View.GONE);
+                viewHolder.leftText.setVisibility(View.VISIBLE);
+            }
+        }
+    };
+
+
+    recyclerView.setAdapter(adapter);
+
+
+}

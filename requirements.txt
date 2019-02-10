@@ -1,0 +1,6 @@
+requests
+twilio
+vobject
+flask
+pylint
+gunicorn==19.3.0
