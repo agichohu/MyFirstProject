@@ -25,7 +25,8 @@ app = Flask(__name__)
 # def handle_request(request_data):
 #     response = MessagingResponse()
 #     body = request_data['Body'].strip()
-message="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+message ="Hi I'm IRIS, an Immediately Responsive Intelligent System"
+
 def sms_reply(message):
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
