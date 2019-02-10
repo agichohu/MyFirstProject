@@ -13,7 +13,6 @@ auth_token  = "63f71b2f8e403b313c598794ca8dfb6f"
 
 number="+19135968817"
 
-message ="Hi I'm IRIS, an Immediately Responsive Intelligent System"
 
 app = Flask(__name__)
 
@@ -27,7 +26,7 @@ app = Flask(__name__)
 #     body = request_data['Body'].strip()
 
 
-def sms_reply(message):
+def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Start our TwiML response
     # if body.lower()=="good":
@@ -35,7 +34,7 @@ def sms_reply(message):
     resp = MessagingResponse()
 	    # Add a message
     
-    resp.message(message)
+    resp.message("Hi I'm IRIS, an Immediately Responsive Intelligent System")
 
 	     # Add a picture message
 	    #msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
